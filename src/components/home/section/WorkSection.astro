@@ -1,0 +1,43 @@
+---
+const works = [
+  {
+    name: "ConceptX",
+    link: "https://class.conceptxmm.com/",
+    date: "2023-2024",
+    description: `Migrating Code From Webpack To Vite,and making API Calls With Backend`,
+  },
+  {
+    name: "Lillup",
+    link: "https://class.conceptxmm.com/",
+    date: "Summer-2024",
+    description: `Mainly work on CI/CD workflow to Deploy The Infrastuture To GCP`,
+  },
+];
+---
+
+<div class="flex flex-col my-12" id="blogs">
+  <div class="typing-container w-fit">
+    <h1
+      id="work"
+      class="text-3xl md:text-4xl font-bold mb-8 typing-line typing-line-1 w-fit"
+    >
+      🗂️Work Experience
+    </h1>
+  </div>
+  <div class="border-b pb-8 flex gap-2 flex-col animate-slideIn">
+    {
+      works.map((work) => (
+        <a
+          class="hover:cursor-pointer border-b py-4 last:border-b-0"
+          href={work.link}
+        >
+          <div class="flex flex-row justify-between text-xl font-bold">
+            <p class="text-blue-800">{work.name}</p>
+            <p class="flex flex-row ">{work.date}</p>
+          </div>
+          <p class="text-base">{work.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</div>

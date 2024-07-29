@@ -1,0 +1,79 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100%}
+}
+
+@keyframes blink {
+  25% { border-color: transparent }
+}
+
+@keyframes hide-cursor {
+  from { border-right: .15em solid orange }
+  to { border-right: none }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.typing-container {
+  display: inline-block;
+}
+
+.typing-line {
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+}
+
+.typing-line-1 {
+  animation: typing 2s steps(30, end), blink .75s step-end infinite, hide-cursor 0s 2s forwards;
+}
+
+.typing-line-2 {
+  opacity: 0;
+  animation: fadeIn 0s 2s forwards, typing 2s steps(30, end) 2s, blink .75s step-end infinite 2s;
+}
+
+
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+.animate-slideIn {
+  animation: slideIn 2s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 3s;
+}

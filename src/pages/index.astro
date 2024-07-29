@@ -1,0 +1,33 @@
+---
+import Header from "../components/Header.astro";
+import Main from "../components/home/MainSection.astro";
+import MainLayout from "../layout/Main.astro";
+import Head from "../layout/Head.astro";
+
+const projects = [
+  {
+    title: "Galaxy🚀",
+    description:
+      "Ship Fast Website To The User With Just A Sprinkle Of Javascript",
+    link: "https://github.com/TomEverson/Astro-Firebase-Starter",
+  },
+  {
+    title: "Astro-Firebase-Starter",
+    description: "Astro SSG🚀 + Firebase🔥",
+    link: "https://github.com/TomEverson/Astro-Firebase-Starter",
+  },
+  {
+    title: "Conceptians-API",
+    description: "API with posgres database",
+    link: "https://github.com/TomEverson/Conceptians-API",
+  },
+];
+---
+
+<html lang="en">
+  <Head />
+  <MainLayout>
+    <Header />
+    <Main projects={projects} />
+  </MainLayout>
+</html>

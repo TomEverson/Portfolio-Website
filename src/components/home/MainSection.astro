@@ -1,0 +1,22 @@
+---
+const {projects} = Astro.props;
+import IntroQuote from "./section/IntroSection.astro";
+import AboutMeSection from "./section/AboutMeSection.astro";
+import WorkSection from "./section/WorkSection.astro";
+import ProjectSection from "./section/ProjectSection.astro";
+
+export type Project = {
+  title: string;
+  description: string;
+  link: string;
+};
+---
+
+<div class="w-10/12 m-auto md:w-1/2 h-full">
+  <!-- Main -->
+  <IntroQuote />
+  <!-- About Me -->
+  <AboutMeSection />
+  <WorkSection />
+  <ProjectSection />
+</div>

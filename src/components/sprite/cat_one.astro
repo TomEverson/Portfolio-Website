@@ -1,0 +1,50 @@
+<canvas id="canvas-1"> </canvas>
+
+<script>
+  const canvas = document.getElementById("canvas-1") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d");
+  const CANVAS_WIDTH = (canvas.width = 32);
+  const CANVAS_HEIGHT = (canvas.height = 32);
+  const spirteHeight = 32;
+  const spirteWidth = 32;
+
+  let frameX = 12;
+  const posX = 32;
+  const posY = 32;
+
+  let gameFrame = 0;
+  const staggerFrame = 10;
+
+  const playerImage = new Image();
+  playerImage.src = "/public/cat.png";
+
+  function animate() {
+    ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    // ctx?.drawImage(playerImage, -384, -64, 1000, 1000);
+    ctx?.drawImage(
+      playerImage,
+      posX * frameX,
+      posY,
+      spirteWidth,
+      spirteHeight,
+      0,
+      0,
+      CANVAS_WIDTH,
+      CANVAS_HEIGHT
+    );
+
+    if (gameFrame % staggerFrame == 0) {
+      if (frameX < 15) {
+        frameX++;
+      } else {
+        frameX = 12;
+      }
+    }
+
+    gameFrame++;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>

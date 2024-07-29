@@ -1,0 +1,76 @@
+---
+import {Icon} from "astro-icon/components";
+import Cat from "./sprite/cat_one.astro";
+
+const iconList = [
+  {
+    link: "https://github.com/TomEverson",
+    mdi: "mdi:github-face",
+  },
+  {
+    link: "https://www.instagram.com/tomeverson20/",
+    mdi: "mdi:discord",
+  },
+  {
+    link: "https://www.linkedin.com/in/tom-everson-44a806229/",
+    mdi: "mdi:linkedin",
+  },
+];
+---
+
+<header class="w-full">
+  <div
+    class="h-16 w-screen p-4 m-0 lg:w-1/2 md:m-auto flex flex-row justify-between items-center border-b"
+  >
+    <nav
+      class="lg:relative flex-col text-base lg:flex lg:flex-row lg:items-center gap-8 hidden"
+    >
+      <a href="/" aria-label="cat">
+        <Cat />
+      </a>
+      <a href="/#works">Work</a>
+      <a href="/#projects">Projects</a>
+    </nav>
+    <nav class="flex flex-row justify-between w-full lg:w-auto">
+      <div class="flex flex-row gap-4">
+        {
+          iconList.map((icon) => (
+            <a
+              aria-label="logo"
+              href={icon.link}
+              class="duration-500 hover:text-blue-500"
+            >
+              <Icon name={icon.mdi} width={32} height={32} />
+            </a>
+          ))
+        }
+      </div>
+      <div class="w-8 lg:hidden relative">
+        <div id="menu-button">
+          <Icon name="mdi:menu" width={32} height={32} />
+        </div>
+        <nav
+          class="absolute top-16 right-0 flex-col gap-4 items-end hidden"
+          id="menu"
+        >
+          <a href="/">Home</a>
+          <a href="/#works">Work</a>
+          <a href="/#projects">Projects</a>
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const menu_button = document.getElementById("menu-button");
+  const menu = document.getElementById("menu");
+
+  menu_button?.addEventListener("click", function () {
+    if (menu.style.display == "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  });
+</script>
