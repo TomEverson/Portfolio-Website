@@ -1,15 +1,16 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import icon from "astro-icon";
-import react from "@astrojs/react";
+import tailwindcss from '@tailwindcss/vite';
+import cloudflare from '@astrojs/cloudflare';
 
-import cloudflare from "@astrojs/cloudflare";
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), icon(), react()],
-  output: "static",
-  adapter: cloudflare()
+  vite: {
+    plugins: [tailwindcss()]
+  },
+
+  adapter: cloudflare({imageService: "compile"}),
+  integrations: [icon()]
 });

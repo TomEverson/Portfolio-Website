@@ -1,7 +1,25 @@
-/* The integration's default injected base.css file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Custom color palette */
+  --color-cappuccino-light: #e6c4a3;
+  --color-cappuccino: #b38b6d;
+  --color-cappuccino-dark: #8a6d54;
+  --color-cream: #fff1e6;
+  --color-coffee: #6f4e37;
+  --color-sugar: #c0b283;
+
+  /* Custom background colors */
+  --color-page: #fff8f2;
+
+  /* Custom text colors */
+  --color-heading: #3e2723;
+  --color-body: #5d4037;
+
+  /* Custom font families */
+  --font-family-roboto-mono: "Roboto Mono", monospace;
+}
 
 @keyframes typing {
   from {
