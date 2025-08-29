@@ -1,0 +1,95 @@
+---
+const projects = [
+  {
+    name: "TheCompassNewsletter",
+    link: "https://thecompassnewsletter.com/",
+    description: "Newsletter Platform For Creative",
+    tech: [
+      "Java Spring",
+      "NextJS/React",
+      "NodeJS",
+      "Cloudflare",
+      "Sanity",
+      "Docker",
+      "AWS",
+      "MySQL",
+      "GitLab",
+    ],
+    type: "Web Platform",
+  },
+  {
+    name: "EscapeSpaces",
+    link: "https://escapespaces.co/",
+    description: "Space Hosting and Finding Platform For Creative",
+    tech: ["React", "Convex", "Cloudflare", "Strapi", "Docker"],
+    type: "Web Platform",
+  },
+  {
+    name: "Fakebook",
+    link: "https://github.com/TomEverson/FakeBook",
+    description: "Facebook Clone Written in C using Socket and No Dependecies",
+    tech: ["C", "Networking", "SQLite", "HTMX", "Encryption"],
+    type: "System",
+  },
+  {
+    name: "SMPL",
+    link: "https://github.com/TomEverson/SMPL",
+    description:
+      "A minimalistic programming language focused on simplicity and efficiency, featuring a compact, dependency-free implementation and supporting three execution modes: Interpreter, Transpiler, and Compiler",
+    tech: ["Python", "Language Design", "Compilation", "Transpilation"],
+    type: "System",
+  },
+  {
+    name: "AutoGroceries",
+    link: "https://github.com/TomEverson/Auto_Groceries",
+    description:
+      "AI-powered Groceries detector using computer vision and image detection",
+    tech: ["Python", "OpenCV", "Web Scraping", "Data Processing"],
+    type: "Web Scraping",
+  },
+];
+---
+
+<div class="flex flex-col my-12" id="projects">
+  <div class="typing-container w-fit">
+    <h1
+      id="projects"
+      class="text-3xl md:text-4xl font-bold mb-8 typing-line typing-line-1 w-fit"
+    >
+      🚀SWE Projects
+    </h1>
+  </div>
+  <div class="border-b pb-8 flex gap-2 flex-col">
+    {
+      projects.map((project) => (
+        <a
+          class="group hover:cursor-pointer border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-md transition-all duration-300"
+          href={project.link}
+        >
+          <div class="flex flex-col">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-lg font-bold text-blue-800 group-hover:text-blue-600 transition-colors">
+                {project.name}
+              </h3>
+              <span class="text-xs font-medium px-2 py-1 bg-gray-100 text-gray-600 rounded-full ml-2 flex-shrink-0">
+                {project.type}
+              </span>
+            </div>
+
+            <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+              {project.description}
+            </p>
+
+            <div class="flex flex-wrap gap-1">
+              {project.tech.map((technology, index) => (
+                <span class="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded border">
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>
