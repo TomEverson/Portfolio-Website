@@ -1,12 +1,23 @@
 ---
 import "../styles/global.css";
+
+const title = "Tom Everson's Portfolio"
+const description = "Tom Everson's Portfolio on Web Development and Data Science. View my latest work and get in touch."
+const keywords = "Tom Everson, Software Engineer, Data Science, Web Developer, Machine Learning, Full Stack Developer, Data Analysis"
+const author = "Tom Everson"
+const canonicalURL = "https://tomeverson.me/"
+const ogImage = "/og.png"
+const ogType = "website"
+const twitterHandle = "@TomEverson125"
+const siteName = "Tom's Portfolio"
+const locale = "en_US"
+const themeColor = "#fff8f2"
+
+
 ---
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
+
   <title>Tom's Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,4 +25,71 @@ import "../styles/global.css";
     href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  
+  
+  <!-- SEO Meta Tags -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content={author} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={title} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content={locale} />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={ogImage} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={title} />
+  <meta name="twitter:site" content={twitterHandle} />
+  <meta name="twitter:creator" content={twitterHandle} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple_touch.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+
+  <!-- Theme and Mobile -->
+  <meta name="theme-color" content={themeColor} />
+  <meta name="msapplication-TileColor" content={themeColor} />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Additional SEO -->
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="revisit-after" content="7 days" />
+  
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteName,
+      "url": fullCanonicalURL,
+      "description": description,
+      "author": {
+        "@type": "Person",
+        "name": author
+      }
+    }
+  </script>
 </head>
+
