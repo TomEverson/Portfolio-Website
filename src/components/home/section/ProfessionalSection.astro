@@ -2,28 +2,64 @@
 const works = [
   {
     name: "Agoda",
-    role: "SWE Intern",
+    role: "Software Engineering Intern",
     link: "https://www.agoda.com/",
-    date: "Summer::2025",
-    description: ["Will Write Later"],
-    tech: ["Scala"],
+    date: "Summer 2025",
+    description: [
+      "Enhanced audit management system handling 200+ daily marketing campaigns, implementing automated change tracking features that improved data integrity monitoring by 40%",
+      "Built comprehensive monitoring dashboards in Grafana to track system health across audit management pipeline, reducing mean time to resolution from 2 hours to 45 minutes",
+      "Designed and implemented 25+ end-to-end test suites using Cypress, achieving 90% test coverage for critical audit workflows and reducing production bugs by 20%",
+    ],
+    tech: [
+      "Scala",
+      "Microsoft SQL Server",
+      "Apache Spark",
+      "PySpark",
+      "Grafana",
+      "Cypress",
+    ],
   },
   {
     name: "Innovera",
     role: "AI Engineer Intern",
     link: "https://www.innovera.ai/",
-    date: "Spring::2025",
-    description: ["Will Write Later"],
+    date: "Spring 2025",
+    description: [
+      "Engineered and deployed an end-to-end RAG system for technical documentation retrieval, processing 500+ enterprise documents through automated data cleaning pipelines and achieving 25% improvement in information retrieval accuracy",
+      "Implemented semantic search using Pinecone vector database with OpenAI text-embedding-ada-002, optimizing chunk size and retrieval strategies to achieve 85% relevance scores and reduce query latency from 6.8s to 4.0s",
+      "Architected production deployment on AWS with Lambda functions, SageMaker endpoints, and S3 data lakes, serving 150+ daily queries across 5 client teams with 99.2% uptime and real-time monitoring",
+    ],
+    tech: [
+      "Python",
+      "LangChain",
+      "LangGraph",
+      "AWS SageMaker",
+      "AWS Lambda",
+      "Amazon S3",
+      "Pinecone",
+      "Vector Databases",
+      "RAG Architecture",
+      "MLOps",
+    ],
   },
   {
     name: "Lillup",
     role: "Backend Intern",
     link: "https://lillup.com/",
-    date: "Summer::2024",
+    date: "Summer 2024",
     description: [
       "Deployed backend infrastructure for 8 microservices using Docker and Cloud Run on Google Cloud, leveraging CI/CD workflows with CircleCI, achieving 99.9% uptime and supporting 1,000+ active users",
       "Migrated the CI/CD pipeline from Jenkins to CircleCI, automating deployment across testing, staging, and production environments, reducing deployment errors by 30% and improving deployment speed by 40%.",
       "Integrated Java Spring applications with GCP services, enhancing microservice communication and reducing service downtime by 30%, while improving system scalability and fault tolerance in distributed cloud architectures.",
+    ],
+    tech: [
+      "Java",
+      "Spring",
+      "Docker",
+      "Google Cloud",
+      "Gitlab",
+      "CircleCI",
+      "Microservices",
     ],
   },
   {
@@ -36,6 +72,7 @@ const works = [
       "Improved frontend performance by implementing lazy loading and code splitting techniques, reducing initial load time by 35% and enhancing overall application speed.",
       "Designed and implemented a real-time notification system, leveraging WebSockets and push notifications to improve user engagement and ensure timely updates, increasing user retention by 15%.",
     ],
+    tech: ["Vue.js", "Nuxt", "Vite", "WebSockets", "Frontend Performance"],
   },
 ];
 ---
@@ -44,7 +81,7 @@ const works = [
   <div class="typing-container w-fit">
     <h1
       id="works"
-      class="text-3xl md:text-4xl font-bold mb-8 typing-line typing-line-1 w-fit"
+      class="text-xl md:text-4xl font-bold mb-8 typing-line typing-line-1"
     >
       🗂️Professional Experience
     </h1>
@@ -52,21 +89,32 @@ const works = [
   <div class="border-b pb-8 flex gap-2 flex-col">
     {
       works.map((work) => (
-        <a
-          class="hover:cursor-pointer border-b py-4 last:border-b-0"
-          href={work.link}
-        >
-          <div class="flex flex-row justify-between text-xl font-bold">
-            <p class="text-blue-800">{work.name}</p>
-            <p class="flex flex-row ">{work.date}</p>
+        <div class="border-b py-4 last:border-b-0">
+          <div class="flex flex-row justify-between text-base md:text-xl font-bold">
+            <a
+              href={work.link}
+              class="text-blue-800 hover:text-blue-600 hover:underline"
+            >
+              {work.name}
+            </a>
+            <p class="flex flex-row">{work.date}</p>
           </div>
-          <p class="text-base font-semibold text-gray-700 mb-2">{work.role}</p>
-          <div class="text-base">
+          <p class="text-xs md:text-base font-semibold text-gray-700 mb-2">
+            {work.role}
+          </p>
+          <div class="text-base mb-3">
             {work.description.map((desc) => (
-              <p class="mb-1">- {desc}</p>
+              <p class="mb-1 text-xs md:text-base">- {desc}</p>
             ))}
           </div>
-        </a>
+          <div class="flex flex-wrap gap-2">
+            {work.tech.map((technology) => (
+              <span class="px-2 py-1 bg-gray-200 text-gray-800 text-xs md:text-sm rounded">
+                {technology}
+              </span>
+            ))}
+          </div>
+        </div>
       ))
     }
   </div>
